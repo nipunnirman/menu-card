@@ -138,31 +138,38 @@ export const menuData = [
 ];
 
 export const categories = [
-  { id: "breakfast", label: "Breakfast" },
-  { id: "lunch", label: "Lunch" },
-  { id: "nasi_goreng", label: "Malay Nasi Goreng" },
-  { id: "grill_chicken", label: "Grill Chicken Fried Rice" },
-  { id: "biryani", label: "Biryani Samba Or Ponni Rice" },
-  { id: "koththu", label: "Koththu (Rotti Or String Hoppers)" },
-  { id: "hot_drinks", label: "Hot Drinks" },
-  { id: "palandi_kottu", label: "Palandi Kottu" },
-  { id: "bamboo_briyani", label: "Bamboo Briyani" },
-  { id: "palandi_cheese_kotthu", label: "Palandi Cheese Kotthu" },
-  { id: "special_thandoori", label: "Special Thandoori Fried Rice" },
-  { id: "chinese_fried_rice", label: "Chinese Fried Rice (Basmati)" },
-  { id: "sambusa_special", label: "Sambusa Special Cheese & Nuts Omelette Rice" },
-  { id: "mongolian_fried_rice", label: "Mongolian Fried Rice" },
-  { id: "naan", label: "Naan With Chana Masala" },
-  { id: "indian_masala", label: "Indian Masala" },
-  { id: "fresh_juice", label: "Fresh Juice" },
-  { id: "appam", label: "Appam" },
-  { id: "dum_briyani", label: "Dum Briyani (Samba or Ponni Rice)" },
-  { id: "fried_rice", label: "Fried Rice (Samba or Ponni Rice)" },
-  { id: "dolphin", label: "Dolphin (Naan Rotti or Baratta Rotti)" },
-  { id: "noodles", label: "Noodles" },
-  { id: "macaroni", label: "Macaroni" },
-  { id: "maravalli_special", label: "KKY Maravalli Special" },
-  { id: "soup", label: "Soup" },
-  { id: "breakfast_packages", label: "Break Fast Packages" },
-  { id: "desserts", label: "Desserts" }
+  // MAIN DISHES - Top priority (Kottu & Rice)
+  { id: "koththu", label: "Koththu (Rotti Or String Hoppers)", page: "Main Dishes" },
+  { id: "palandi_kottu", label: "Palandi Kottu", page: "Main Dishes" },
+  { id: "palandi_cheese_kotthu", label: "Palandi Cheese Kotthu", page: "Main Dishes" },
+  { id: "fried_rice", label: "Fried Rice (Samba or Ponni Rice)", page: "Main Dishes" },
+  { id: "grill_chicken", label: "Grill Chicken Fried Rice", page: "Main Dishes" },
+  { id: "chinese_fried_rice", label: "Chinese Fried Rice (Basmati)", page: "Main Dishes" },
+  { id: "special_thandoori", label: "Special Thandoori Fried Rice", page: "Main Dishes" },
+  { id: "nasi_goreng", label: "Malay Nasi Goreng", page: "Main Dishes" },
+  { id: "mongolian_fried_rice", label: "Mongolian Fried Rice", page: "Main Dishes" },
+  { id: "biryani", label: "Biryani Samba Or Ponni Rice", page: "Main Dishes" },
+  { id: "bamboo_briyani", label: "Bamboo Briyani", page: "Main Dishes" },
+  { id: "dum_briyani", label: "Dum Briyani (Samba or Ponni Rice)", page: "Main Dishes" },
+  
+  // MAIN DISHES - Others
+  { id: "noodles", label: "Noodles", page: "Main Dishes" },
+  { id: "macaroni", label: "Macaroni", page: "Main Dishes" },
+  { id: "sambusa_special", label: "Sambusa Special Cheese & Nuts Omelette Rice", page: "Main Dishes" },
+  { id: "breakfast", label: "Breakfast", page: "Main Dishes" },
+  { id: "lunch", label: "Lunch", page: "Main Dishes" },
+  { id: "soup", label: "Soup", page: "Main Dishes" },
+
+  // FAST FOOD
+  { id: "naan", label: "Naan With Chana Masala", page: "Fast Food" },
+  { id: "indian_masala", label: "Indian Masala", page: "Fast Food" },
+  { id: "appam", label: "Appam", page: "Fast Food" },
+  { id: "dolphin", label: "Dolphin (Naan Rotti or Baratta Rotti)", page: "Fast Food" },
+  { id: "maravalli_special", label: "KKY Maravalli Special", page: "Fast Food" },
+  { id: "breakfast_packages", label: "Break Fast Packages", page: "Fast Food" },
+  { id: "desserts", label: "Desserts", page: "Fast Food" },
+
+  // DRINKS
+  { id: "hot_drinks", label: "Hot Drinks", page: "Drinks" },
+  { id: "fresh_juice", label: "Fresh Juice", page: "Drinks" }
 ];

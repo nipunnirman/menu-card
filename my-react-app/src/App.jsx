@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import CategoryTabs from './components/CategoryTabs';
 import MenuTable from './components/MenuTable';
 import { menuData, categories } from './data';
 import './App.css';
 
 function App() {
-  const [activeCategory, setActiveCategory] = useState(categories[0].id);
+  const [activePage, setActivePage] = useState('Main Dishes');
+  
+  const pages = ['Main Dishes', 'Fast Food', 'Drinks'];
+  const filteredCategories = categories.filter(c => c.page === activePage);
 
-  const filteredItems = menuData.filter(item => item.category === activeCategory);
+  const handlePageChange = (page) => {
+    setActivePage(page);
+  };
 
   return (
     <div className="app-container">
@@ -19,13 +23,30 @@ function App() {
       </header>
 
       <main className="main-content">
-        <CategoryTabs 
-          categories={categories} 
-          activeCategory={activeCategory} 
-          setActiveCategory={setActiveCategory} 
-        />
-        
-        <MenuTable items={filteredItems} />
+        <div className="page-tabs-container">
+          {pages.map(page => (
+            <button
+              key={page}
+              className={`page-tab ${activePage === page ? 'active' : ''}`}
+              onClick={() => handlePageChange(page)}
+            >
+              {page}
+            </button>
+          ))}
+        </div>
+
+        <div className="vertical-menu">
+          {filteredCategories.map(category => {
+            const items = menuData.filter(item => item.category === category.id);
+            if (items.length === 0) return null; // Don't render empty sections
+            return (
+              <section key={category.id} className="menu-section">
+                <h2 className="section-title">{category.label}</h2>
+                <MenuTable items={items} />
+              </section>
+            );
+          })}
+        </div>
       </main>
 
       <footer className="footer">
