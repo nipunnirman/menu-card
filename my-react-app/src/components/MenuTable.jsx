@@ -14,11 +14,11 @@ const MenuTable = ({ items }) => {
             {priceHeaders.length > 0 ? (
               priceHeaders.map(header => (
                 <th key={header} className="th-price" style={{ textTransform: 'capitalize' }}>
-                  {header}
+                  {header} (Rs.)
                 </th>
               ))
             ) : (
-              <th className="th-price" style={{ textAlign: 'center' }}>Price</th>
+              <th className="th-price" style={{ textAlign: 'center' }}>Price (Rs.)</th>
             )}
           </tr>
         </thead>
@@ -36,12 +36,12 @@ const MenuTable = ({ items }) => {
                 // If the category has multi-prices, show dynamic columns
                 priceHeaders.map(header => (
                   <td key={header} className={`td-price ${!item.prices || !item.prices[header] ? 'td-empty' : ''}`}>
-                    {item.prices && item.prices[header] ? `Rs. ${item.prices[header]}` : '-'}
+                    {item.prices && item.prices[header] ? item.prices[header] : '-'}
                   </td>
                 ))
               ) : (
                 <td className="td-price" style={{ textAlign: 'center' }}>
-                  {item.price ? `Rs. ${item.price}` : '-'}
+                  {item.price ? item.price : '-'}
                 </td>
               )}
             </tr>
