@@ -10,7 +10,7 @@ const MenuTable = ({ items }) => {
       <table className="menu-table">
         <thead>
           <tr>
-            <th className="th-item">Item (සිංහල / தமிழ் / English)</th>
+            <th className="th-item">Item</th>
             {priceHeaders.length > 0 ? (
               priceHeaders.map(header => (
                 <th key={header} className="th-price" style={{ textTransform: 'capitalize' }}>
