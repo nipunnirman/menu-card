@@ -33,12 +33,18 @@ export const menuData = [
   { id: 32, names: { en: "Chicken Malay Nasi Goreng", si: "චිකන් මැලේ නාසි ගුරාන්", ta: "கோழி மலாய் நாசி கோரெங்" }, category: "nasi_goreng", prices: { "Small": 1000, "Medium": 1400, "Large": 2800 } },
   { id: 33, names: { en: "Mixed Malay Nasi Goreng", si: "මික්ස්ඩ් මැලේ නාසි ගුරාන්", ta: "கலப்பு மலாய் நாசி கோரெங்" }, category: "nasi_goreng", prices: { "Small": 1250, "Medium": 1700, "Large": 3500 } },
   { id: 34, names: { en: "Sea Food Malay Nasi Goreng", si: "සී ෆුඩ් මැලේ නාසි ගුරාන්", ta: "கடல் உணவு மலாய் நாசி கோரெங்" }, category: "nasi_goreng", prices: { "Small": 1250, "Medium": 1700, "Large": 3500 } },
-  { id: 35, names: { en: "Special Grill Chicken Fried Rice", si: "ස්පෙෂල් ග්‍රිල් චිකන් ෆ්‍රයිඩ් රයිස්", ta: "சிறப்பு கிரில் சிக்கன் ப்ரைட் ரைஸ்" }, category: "grill_chicken", prices: { "Small": 1000, "Medium": 1500, "Large": 3500 } }
+  { id: 35, names: { en: "Special Grill Chicken Fried Rice", si: "ස්පෙෂල් ග්‍රිල් චිකන් ෆ්‍රයිඩ් රයිස්", ta: "சிறப்பு கிரில் சிக்கன் ப்ரைட் ரைஸ்" }, category: "grill_chicken", prices: { "Small": 1000, "Medium": 1500, "Large": 3500 } },
+  { id: 36, names: { en: "Egg Biriyani", si: "බිත්තර බිරියානි", ta: "முட்டை பிரியாணி" }, category: "biryani", prices: { "Small": 400, "Medium": 650, "Large": 1500 } },
+  { id: 37, names: { en: "Vegetable Briyani", si: "එළවළු බිරියානි", ta: "மரக்கறி பிரியாணி" }, category: "biryani", prices: { "Small": 350, "Medium": 550 } },
+  { id: 38, names: { en: "Fish Briyani", si: "මාළු බිරියානි", ta: "மீன் பிரியாணி" }, category: "biryani", prices: { "Small": 650, "Medium": 850 } },
+  { id: 39, names: { en: "Beef Briyan", si: "බීෆ් බිරියානි", ta: "மாட்டிறைச்சி பிரியாணி" }, category: "biryani", prices: { "Small": 750, "Medium": 950, "Large": 2000 } },
+  { id: 40, names: { en: "Chicken Briyani", si: "චිකන් බිරියානි", ta: "கோழி பிரியாணி" }, category: "biryani", prices: { "Small": 700, "Medium": 900, "Large": 2000 } }
 ];
 
 export const categories = [
   { id: "breakfast", label: "Breakfast" },
   { id: "lunch", label: "Lunch" },
   { id: "nasi_goreng", label: "Malay Nasi Goreng" },
-  { id: "grill_chicken", label: "Grill Chicken Fried Rice" }
+  { id: "grill_chicken", label: "Grill Chicken Fried Rice" },
+  { id: "biryani", label: "Biryani Samba Or Ponni Rice" }
 ];
