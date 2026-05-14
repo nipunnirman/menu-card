@@ -40,8 +40,9 @@ const MenuTable = ({ items }) => {
                   </td>
                 ))
               ) : (
-                // If the category only has single prices, show one centered column
-                <td className="td-price" style={{ textAlign: 'center' }}>Rs. {item.price}</td>
+                <td className="td-price" style={{ textAlign: 'center' }}>
+                  {item.price ? `Rs. ${item.price}` : '-'}
+                </td>
               )}
             </tr>
           ))}
