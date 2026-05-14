@@ -1,8 +1,9 @@
 import React from 'react';
 
 const MenuTable = ({ items }) => {
-  // Check if any item in the current list has multiple prices
-  const hasMultiPrice = items.some(item => item.prices);
+  // Find the first item with multiple prices to determine headers dynamically
+  const multiPriceItem = items.find(item => item.prices);
+  const priceHeaders = multiPriceItem ? Object.keys(multiPriceItem.prices) : [];
 
   return (
     <div className="table-container">
@@ -10,11 +11,12 @@ const MenuTable = ({ items }) => {
         <thead>
           <tr>
             <th className="th-item">Item (සිංහල / தமிழ் / English)</th>
-            {hasMultiPrice ? (
-              <>
-                <th className="th-price">Normal</th>
-                <th className="th-price">Full</th>
-              </>
+            {priceHeaders.length > 0 ? (
+              priceHeaders.map(header => (
+                <th key={header} className="th-price" style={{ textTransform: 'capitalize' }}>
+                  {header}
+                </th>
+              ))
             ) : (
               <th className="th-price" style={{ textAlign: 'center' }}>Price</th>
             )}
@@ -25,26 +27,18 @@ const MenuTable = ({ items }) => {
             <tr key={item.id}>
               <td className="td-item">
                 <div className="item-names">
-                  <span className="name-si">{item.names.si}</span>
-                  <span className="name-ta">{item.names.ta}</span>
+                  {item.names.si && <span className="name-si">{item.names.si}</span>}
+                  {item.names.ta && <span className="name-ta">{item.names.ta}</span>}
                   <span className="name-en">{item.names.en}</span>
                 </div>
               </td>
-              {hasMultiPrice ? (
-                // If the category has multi-prices, show two columns
-                <>
-                  {item.prices ? (
-                    <>
-                      <td className="td-price">Rs. {item.prices.normal}</td>
-                      <td className="td-price">Rs. {item.prices.full}</td>
-                    </>
-                  ) : (
-                    <>
-                      <td className="td-price">Rs. {item.price}</td>
-                      <td className="td-price td-empty">-</td>
-                    </>
-                  )}
-                </>
+              {priceHeaders.length > 0 ? (
+                // If the category has multi-prices, show dynamic columns
+                priceHeaders.map(header => (
+                  <td key={header} className={`td-price ${!item.prices || !item.prices[header] ? 'td-empty' : ''}`}>
+                    {item.prices && item.prices[header] ? `Rs. ${item.prices[header]}` : '-'}
+                  </td>
+                ))
               ) : (
                 // If the category only has single prices, show one centered column
                 <td className="td-price" style={{ textAlign: 'center' }}>Rs. {item.price}</td>
