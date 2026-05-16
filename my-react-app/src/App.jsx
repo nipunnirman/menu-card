@@ -17,6 +17,7 @@ function App() {
     const newIndex = pages.indexOf(page);
     setDirection(newIndex > currentIndex ? 1 : -1);
     setActivePage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const pageVariants = {
@@ -83,9 +84,11 @@ function App() {
                 if (info.offset.x < -swipeThreshold && currentIndex < pages.length - 1) {
                   setDirection(1);
                   setActivePage(pages[currentIndex + 1]);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else if (info.offset.x > swipeThreshold && currentIndex > 0) {
                   setDirection(-1);
                   setActivePage(pages[currentIndex - 1]);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
             >
