@@ -161,9 +161,11 @@ export const categories = [
   { id: "breakfast_packages", label: "Break Fast Packages", page: "Breakfast & Lunch" },
   { id: "appam", label: "Appam", page: "Breakfast & Lunch" },
 
+  // NOODLES
+  { id: "noodles", label: "Noodles", page: "Noodles" },
+  { id: "macaroni", label: "Macaroni", page: "Noodles" },
+
   // FAST FOOD
-  { id: "noodles", label: "Noodles", page: "Fast Food" },
-  { id: "macaroni", label: "Macaroni", page: "Fast Food" },
   { id: "soup", label: "Soup", page: "Fast Food" },
   { id: "naan", label: "Naan With Chana Masala", page: "Fast Food" },
   { id: "indian_masala", label: "Indian Masala", page: "Fast Food" },

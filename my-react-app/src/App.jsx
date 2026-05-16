@@ -8,7 +8,7 @@ function App() {
   const [activePage, setActivePage] = useState('Kottu');
   const [direction, setDirection] = useState(0);
   
-  const pages = ['Kottu', 'Rice', 'Breakfast & Lunch', 'Fast Food', 'Drinks'];
+  const pages = ['Kottu', 'Rice', 'Breakfast & Lunch', 'Noodles', 'Fast Food', 'Drinks'];
   const filteredCategories = categories.filter(c => c.page === activePage);
 
   const handlePageChange = (page) => {
