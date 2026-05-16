@@ -29,10 +29,10 @@
 }
 
 .hero-content .hotel-subtitle {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #e4e4e7;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
@@ -285,7 +285,12 @@
   }
 
   .hero-content h1 {
-    font-size: 1.8rem;
+    font-size: 3.5rem;
+  }
+  
+  .hero-content .hotel-subtitle {
+    font-size: 1rem;
+    letter-spacing: 3px;
   }
 
   .category-tabs {
