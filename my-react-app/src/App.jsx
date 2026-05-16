@@ -64,7 +64,7 @@ function App() {
         </div>
       </header>
 
-      <main className="main-content">
+      <main className="main-content" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <div className="page-tabs-container">
           {pages.map(page => (
             <button
@@ -77,7 +77,7 @@ function App() {
           ))}
         </div>
 
-        <div className="vertical-menu" style={{ perspective: '1000px', overflowX: 'hidden' }}>
+        <div className="vertical-menu" style={{ perspective: '1000px', overflowX: 'hidden', flex: 1, display: 'flex', flexDirection: 'column' }}>
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={activePage}
@@ -90,7 +90,7 @@ function App() {
                 duration: 0.3,
                 ease: "easeInOut"
               }}
-              style={{ width: '100%', transformOrigin: 'center' }}
+              style={{ width: '100%', transformOrigin: 'center', flex: 1, display: 'flex', flexDirection: 'column', gap: '3rem' }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.2}
