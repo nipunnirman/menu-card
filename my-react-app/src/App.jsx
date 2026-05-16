@@ -59,6 +59,7 @@ function App() {
       <header className="hero-section">
         <div className="hero-content">
           <h1>Sambusa</h1>
+          <h2 className="hotel-subtitle">Hotel & Family Restaurant</h2>
           <p className="subtitle">Premium Quality Food</p>
         </div>
       </header>
@@ -121,7 +122,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Sambusa. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Sambusa Hotel & Family Restaurant. All rights reserved.</p>
       </footer>
 
       <AnimatePresence>
