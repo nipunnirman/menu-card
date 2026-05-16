@@ -19,21 +19,6 @@ function App() {
     setActivePage(page);
   };
 
-  const handleDragEnd = (event, info) => {
-    const swipeThreshold = 50;
-    const currentIndex = pages.indexOf(activePage);
-    
-    if (info.offset.x < -swipeThreshold && currentIndex < pages.length - 1) {
-      // Swiped left
-      setDirection(1);
-      setActivePage(pages[currentIndex + 1]);
-    } else if (info.offset.x > swipeThreshold && currentIndex > 0) {
-      // Swiped right
-      setDirection(-1);
-      setActivePage(pages[currentIndex - 1]);
-    }
-  };
-
   const pageVariants = {
     initial: (direction) => ({
       x: direction > 0 ? '100%' : '-100%',
@@ -90,11 +75,19 @@ function App() {
                 duration: 0.3,
                 ease: "easeInOut"
               }}
-              style={{ width: '100%', transformOrigin: 'center', flex: 1, display: 'flex', flexDirection: 'column', gap: '3rem' }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.2}
-              onDragEnd={handleDragEnd}
+              style={{ width: '100%', transformOrigin: 'center', flex: 1, display: 'flex', flexDirection: 'column', gap: '3rem', touchAction: 'pan-y' }}
+              onPanEnd={(e, info) => {
+                const swipeThreshold = 50;
+                const currentIndex = pages.indexOf(activePage);
+                
+                if (info.offset.x < -swipeThreshold && currentIndex < pages.length - 1) {
+                  setDirection(1);
+                  setActivePage(pages[currentIndex + 1]);
+                } else if (info.offset.x > swipeThreshold && currentIndex > 0) {
+                  setDirection(-1);
+                  setActivePage(pages[currentIndex - 1]);
+                }
+              }}
             >
               {filteredCategories.map(category => {
                 const items = menuData.filter(item => item.category === category.id);
