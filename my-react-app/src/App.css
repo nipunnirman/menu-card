@@ -17,6 +17,7 @@
 .hero-content h1 {
   font-size: 4rem;
   font-weight: 800;
+  font-style: italic;
   letter-spacing: 4px;
   background: linear-gradient(135deg, #fff, #ffc899);
   -webkit-background-clip: text;
@@ -29,7 +30,8 @@
 .hero-content .subtitle {
   color: var(--accent-primary);
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 700;
+  font-style: italic;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -102,7 +104,8 @@
 
 .section-title {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
+  font-style: italic;
   color: var(--accent-secondary);
   text-align: center;
   margin: 0;
@@ -154,7 +157,8 @@
   letter-spacing: 2px;
   color: var(--text-secondary);
   border-bottom: 1px solid var(--glass-border);
-  font-weight: 700;
+  font-weight: 800;
+  font-style: italic;
 }
 
 .menu-table td {
