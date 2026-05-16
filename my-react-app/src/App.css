@@ -113,9 +113,10 @@
   box-shadow: var(--glass-shadow);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
+  touch-action: pan-y;
 }
 
 /* Inner Glow effect for the table container */
