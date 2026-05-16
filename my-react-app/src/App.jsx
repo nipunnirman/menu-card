@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MenuTable from './components/MenuTable';
 import { menuData, categories } from './data';
@@ -7,9 +7,22 @@ import './App.css';
 function App() {
   const [activePage, setActivePage] = useState('Kottu');
   const [direction, setDirection] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   
   const pages = ['Kottu', 'Rice', 'Breakfast & Lunch', 'Noodles', 'Fast Food', 'Drinks'];
   const filteredCategories = categories.filter(c => c.page === activePage);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handlePageChange = (page) => {
     if (page === activePage) return;
@@ -110,6 +123,22 @@ function App() {
       <footer className="footer">
         <p>&copy; {new Date().getFullYear()} Sambusa. All rights reserved.</p>
       </footer>
+
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            className="scroll-top-btn"
+            onClick={scrollToTop}
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.8 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            ↑
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
