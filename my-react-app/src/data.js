@@ -142,6 +142,7 @@ export const categories = [
   { id: "koththu", label: "Koththu (Rotti Or String Hoppers)", page: "Kottu" },
   { id: "palandi_kottu", label: "Palandi Kottu", page: "Kottu" },
   { id: "palandi_cheese_kotthu", label: "Palandi Cheese Kotthu", page: "Kottu" },
+  { id: "dolphin", label: "Dolphin (Naan Rotti or Baratta Rotti)", page: "Kottu" },
 
   // RICE
   { id: "fried_rice", label: "Fried Rice (Samba or Ponni Rice)", page: "Rice" },
@@ -169,7 +170,6 @@ export const categories = [
   { id: "soup", label: "Soup", page: "Fast Food" },
   { id: "naan", label: "Naan With Chana Masala", page: "Fast Food" },
   { id: "indian_masala", label: "Indian Masala", page: "Fast Food" },
-  { id: "dolphin", label: "Dolphin (Naan Rotti or Baratta Rotti)", page: "Fast Food" },
   { id: "maravalli_special", label: "KKY Maravalli Special", page: "Fast Food" },
   { id: "desserts", label: "Desserts", page: "Fast Food" },
 
