@@ -10,40 +10,180 @@
 /* Hero Section */
 .hero-section {
   text-align: center;
-  padding: 5rem 0 3rem;
-  animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  padding: 6rem 0 4rem;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero-content h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 8rem;
-  font-weight: 900;
+/* Back glows */
+.hero-glow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: screen;
+}
+
+.glow-1 {
+  top: 15%;
+  left: 25%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(139, 69, 19, 0.45) 0%, transparent 75%); /* SaddleBrown */
+}
+
+.glow-2 {
+  bottom: 15%;
+  right: 25%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(218, 165, 32, 0.35) 0%, transparent 75%); /* Goldenrod */
+}
+
+/* Floating particles */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 164, 96, 0.35) 0%, transparent 80%); /* SandyBrown */
+  pointer-events: none;
+}
+
+.particle-0 { top: 15%; left: 12%; width: 24px; height: 24px; }
+.particle-1 { top: 65%; left: 18%; width: 14px; height: 14px; }
+.particle-2 { top: 25%; right: 10%; width: 32px; height: 32px; }
+.particle-3 { top: 75%; right: 15%; width: 18px; height: 18px; }
+.particle-4 { top: 10%; left: 48%; width: 10px; height: 10px; }
+.particle-5 { top: 80%; left: 52%; width: 16px; height: 16px; }
+
+/* Logo card & tagline wrapper */
+.hero-logo-wrapper {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 480px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.glass-card-logo {
+  background: rgba(30, 20, 15, 0.35); /* Soft cocoa tinted backdrop */
+  border: 1px solid rgba(218, 165, 32, 0.2); /* Bronze border hint */
+  padding: 3rem 2rem;
+  border-radius: 36px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    inset 0 0 30px rgba(218, 165, 32, 0.06);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 36px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(218,165,32,0.1) 40%, rgba(139,69,19,0.05) 70%, rgba(255,255,255,0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.glass-card-logo:hover {
+  border-color: rgba(218, 165, 32, 0.45);
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.85),
+    0 0 50px rgba(139, 69, 19, 0.35),
+    inset 0 1px 4px rgba(255, 255, 255, 0.25);
+  background: rgba(35, 25, 20, 0.45);
+}
+
+.hero-logo-img {
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.65));
+  max-height: 170px;
+}
+
+/* Sweep Sheen Effect */
+.logo-sheen {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.05) 70%,
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: sheenSweep 8s infinite ease-in-out;
+}
+
+@keyframes sheenSweep {
+  0% { left: -150%; }
+  15% { left: 150%; }
+  100% { left: 150%; }
+}
+
+.hero-tagline {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  font-weight: 800;
   font-style: italic;
-  letter-spacing: 6px;
-  background: linear-gradient(135deg, #fff, #ffc899);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ffffff 10%, #ffd0a3 50%, #d8964d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.2rem;
-  text-transform: uppercase;
-  text-shadow: 0 4px 20px rgba(255, 140, 0, 0.2);
-}
-
-.hero-content .hotel-subtitle {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #e4e4e7;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.hero-content .subtitle {
-  color: var(--accent-primary);
-  font-size: 1.2rem;
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  text-shadow: 0 4px 15px rgba(139, 69, 19, 0.25);
+  display: inline-block;
 }
 
 /* Page Tabs (Main Dishes, Fast Food, Drinks) */
@@ -284,13 +424,23 @@
     text-align: center;
   }
 
-  .hero-content h1 {
-    font-size: 3.5rem;
+  .hero-section {
+    padding: 3rem 0 2rem;
   }
-  
-  .hero-content .hotel-subtitle {
-    font-size: 1rem;
+
+  .glass-card-logo {
+    padding: 2rem 1.25rem;
+    border-radius: 28px;
+  }
+
+  .hero-logo-img {
+    max-height: 110px;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
     letter-spacing: 3px;
+    margin-top: 1.5rem;
   }
 
   .category-tabs {

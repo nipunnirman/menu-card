@@ -57,11 +57,62 @@ function App() {
   return (
     <div className="app-container">
       <header className="hero-section">
-        <div className="hero-content">
-          <h1>Sambusa</h1>
-          <h2 className="hotel-subtitle">Hotel & Family Restaurant</h2>
-          <p className="subtitle">Premium Quality Food</p>
+        {/* Decorative background glow circles */}
+        <div className="hero-glow-container">
+          <div className="glow-circle glow-1"></div>
+          <div className="glow-circle glow-2"></div>
         </div>
+
+        {/* Ambient floating particles */}
+        <div className="hero-particles">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className={`hero-particle particle-${i}`}
+              animate={{
+                y: [0, -30, 0],
+                x: [0, i % 2 === 0 ? 20 : -20, 0],
+                opacity: [0.15, 0.4, 0.15],
+              }}
+              transition={{
+                duration: 5 + i * 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
+
+        <motion.div 
+          className="hero-logo-wrapper"
+          initial={{ opacity: 0, scale: 0.9, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <div className="glass-card-logo">
+            <motion.img 
+              src="/logo-hero-brown.png" 
+              alt="Sambusa Logo" 
+              className="hero-logo-img"
+              animate={{ y: [0, -8, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <div className="logo-sheen"></div>
+          </div>
+          <motion.p 
+            className="hero-tagline"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 1 }}
+          >
+            Premium Quality Food
+          </motion.p>
+        </motion.div>
       </header>
 
       <main className="main-content" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
